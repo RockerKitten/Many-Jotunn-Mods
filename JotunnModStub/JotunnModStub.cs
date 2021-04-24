@@ -51,9 +51,7 @@ namespace JotunnModStub
         private void CreateThing()
         {
             var bow_prefab = embeddedResourceBundle.LoadAsset<GameObject>("Windlass");
-            var bow = new CustomItem(bow_prefab, fixReference: true);
-            var itemDrop = bow.ItemDrop;
-            itemDrop.m_itemData.m_shared.m_equipStatusEffect = WindlassEffect.StatusEffect;
+            var bow = new CustomItem(bow_prefab, fixReference: true,
                 new ItemConfig
                 {
                     Amount = 1,
@@ -64,9 +62,11 @@ namespace JotunnModStub
                     {
                         new RequirementConfig { Item = "Honey", Amount = 1},
                         new RequirementConfig { Item = "DragonTear", Amount = 1, AmountPerLevel = 4},
-                        new RequirementConfig { Item = "Brass", Amount = 3, AmountPerLevel = 10}
+                        new RequirementConfig { Item = "Bronze", Amount = 3, AmountPerLevel = 10}
                     }
-                };
+                }); 
+            var itemDrop = bow.ItemDrop;
+            itemDrop.m_itemData.m_shared.m_equipStatusEffect = WindlassEffect.StatusEffect;
             ItemManager.Instance.AddItem(bow);
             
         }
@@ -80,9 +80,9 @@ namespace JotunnModStub
             effect.name = "WindlassEffect";
             effect.m_name = "Windlass Spirit";
             effect.m_icon = AssetUtils.LoadSpriteFromFile("JotunnModStub/Assets/Windlass.png");
-            effect.m_startMessageType = MessageHud.MessageType.Center;
+            effect.m_startMessageType = MessageHud.MessageType.TopLeft;
             effect.m_startMessage = "The wind begins to howl";
-            effect.m_stopMessageType = MessageHud.MessageType.Center;
+            effect.m_stopMessageType = MessageHud.MessageType.TopLeft;
             effect.m_stopMessage = "The wind calms down";
             var multiplier = 5f;
             effect.ModifyHealthRegen(ref multiplier);
