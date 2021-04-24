@@ -25,13 +25,13 @@ namespace JotunnModStub
         public const string PluginVersion = "0.0.1";
         public static new Jotunn.Logger Logger;
         private AssetBundle embeddedResourceBundle;
-
-        public GameObject turnipburgerfab { get; private set; }
+        public CustomStatusEffect WindlassEffect;
 
         private void Awake()
         {
 
             LoadAssets();
+            AddStatusEffects();
             CreateThing();
         }
 
@@ -46,16 +46,14 @@ namespace JotunnModStub
         {
             Jotunn.Logger.LogInfo($"Embedded resources: {string.Join(",", Assembly.GetExecutingAssembly().GetManifestResourceNames())}");
             embeddedResourceBundle = AssetUtils.LoadAssetBundleFromResources("bow", Assembly.GetExecutingAssembly());
-            //insert prefabs here
-            //turnipburgerfab = embeddedResourceBundle.LoadAsset<GameObject>("Assets/Weaponsssets/BowBryan.prefab");
-
-
         }
 
         private void CreateThing()
         {
-            var burger_prefab = embeddedResourceBundle.LoadAsset<GameObject>("BowZarboz");
-            var burger = new CustomItem(burger_prefab, fixReference: true,
+            var bow_prefab = embeddedResourceBundle.LoadAsset<GameObject>("Windlass");
+            var bow = new CustomItem(bow_prefab, fixReference: true);
+            var itemDrop = bow.ItemDrop;
+            itemDrop.m_itemData.m_shared.m_equipStatusEffect = WindlassEffect.StatusEffect;
                 new ItemConfig
                 {
                     Amount = 1,
@@ -65,30 +63,36 @@ namespace JotunnModStub
                     Requirements = new[]
                     {
                         new RequirementConfig { Item = "Honey", Amount = 1},
-                        new RequirementConfig { Item = "DragonTear", Amount = 1},
+                        new RequirementConfig { Item = "DragonTear", Amount = 1, AmountPerLevel = 4},
                         new RequirementConfig { Item = "Brass", Amount = 3, AmountPerLevel = 10}
                     }
-                });
-            ItemManager.Instance.AddItem(burger);
-            //PrefabManager.Instance.AddPrefab(burger_prefab);
-
+                };
+            ItemManager.Instance.AddItem(bow);
+            
         }
 
-        //can clone a prefab from game with this but it duplicates CreateFood() in a non working way
-        private void Foodrecipes()
+        private void AddStatusEffects()
         {
-            CustomRecipe turnipburger = new CustomRecipe(new RecipeConfig()
-            {
-                Item = "turnipburger",
-                CraftingStation = "piece_cauldron",
-                Amount = 1,
-                Requirements = new[]
-                {
-                    new RequirementConfig {Item = "Honey", Amount = 1}
-                }
-            });
-            ItemManager.Instance.AddRecipe(turnipburger);
+            // Create a new status effect. The base class "StatusEffect" does not do very much except displaying messages
+            // A Status Effect is normally a subclass of StatusEffects which has methods for further coding of the effects (e.g. SE_Stats).
+            StatusEffect effect = ScriptableObject.CreateInstance<StatusEffect>();
+            
+            effect.name = "WindlassEffect";
+            effect.m_name = "Windlass Spirit";
+            effect.m_icon = AssetUtils.LoadSpriteFromFile("JotunnModStub/Assets/Windlass.png");
+            effect.m_startMessageType = MessageHud.MessageType.Center;
+            effect.m_startMessage = "The wind begins to howl";
+            effect.m_stopMessageType = MessageHud.MessageType.Center;
+            effect.m_stopMessage = "The wind calms down";
+            var multiplier = 5f;
+            effect.ModifyHealthRegen(ref multiplier);
+            var drainer = -10f;
+            effect.ModifyRunStaminaDrain(1, drain: ref drainer);
+            effect.ModifyRaiseSkill(Skills.SkillType.Bows, ref multiplier);
 
+            WindlassEffect = new CustomStatusEffect(effect, fixReference: false);  // We dont need to fix refs here, because no mocks were used
+            ItemManager.Instance.AddStatusEffect(WindlassEffect);
+          
         }
     }
 }

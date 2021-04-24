@@ -96,6 +96,9 @@
     <None Include="Package\manifest.json" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Windlass.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Package\icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
