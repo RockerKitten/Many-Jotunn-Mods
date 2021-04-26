@@ -12,6 +12,7 @@ using System.Reflection;
 using Jotunn.Entities;
 using Jotunn.Configs;
 using Jotunn.Managers;
+using IL;
 
 namespace JotunnModStub
 {
@@ -29,19 +30,17 @@ namespace JotunnModStub
 
         private void Awake()
         {
-
             LoadAssets();
             AddStatusEffects();
             CreateThing();
         }
 
-
+        
         private void Update()
         {
   
         }
-
-
+         
         private void LoadAssets()
         {
             Jotunn.Logger.LogInfo($"Embedded resources: {string.Join(",", Assembly.GetExecutingAssembly().GetManifestResourceNames())}");
@@ -60,13 +59,14 @@ namespace JotunnModStub
                     RepairStation = "forge",
                     Requirements = new[]
                     {
-                        new RequirementConfig { Item = "Honey", Amount = 1},
+                        new RequirementConfig { Item = "Obsidian", Amount = 1},
                         new RequirementConfig { Item = "DragonTear", Amount = 1, AmountPerLevel = 4},
                         new RequirementConfig { Item = "Bronze", Amount = 3, AmountPerLevel = 10}
                     }
                 }); 
             var itemDrop = bow.ItemDrop;
             itemDrop.m_itemData.m_shared.m_equipStatusEffect = WindlassEffect.StatusEffect;
+            
             ItemManager.Instance.AddItem(bow);
             
         }
@@ -89,10 +89,27 @@ namespace JotunnModStub
             var drainer = -10f;
             effect.ModifyRunStaminaDrain(1, drain: ref drainer);
             effect.ModifyRaiseSkill(Skills.SkillType.Bows, ref multiplier);
-
+            
             WindlassEffect = new CustomStatusEffect(effect, fixReference: false);  // We dont need to fix refs here, because no mocks were used
             ItemManager.Instance.AddStatusEffect(WindlassEffect);
+
+         
+           /* void fermenterthing()
+            {
+                Fermenter.ItemConversion balls = ScriptableObject.CreateInstance<Fermenter.ItemConversion>();
+                balls.m_from;
+                balls.m_to;
+                balls.m_producedItems;
+
+
+
+                //public bool IsItemAllowed(ItemDrop.ItemData item);
+                //public bool IsItemAllowed(string itemName);
+
+            }*/
           
         }
+
+       
     }
 }
