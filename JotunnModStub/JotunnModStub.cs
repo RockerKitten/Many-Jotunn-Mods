@@ -21,8 +21,8 @@ namespace JotunnModStub
     //[NetworkCompatibilty(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
     internal class JotunnModStub : BaseUnityPlugin
     {
-        public const string PluginGUID = "com.jotunn.jotunnmodstub";
-        public const string PluginName = "JotunnModStub";
+        public const string PluginGUID = "com.jotunn.windlass";
+        public const string PluginName = "Windlass";
         public const string PluginVersion = "0.0.1";
         public static new Jotunn.Logger Logger;
         private AssetBundle embeddedResourceBundle;
@@ -79,7 +79,7 @@ namespace JotunnModStub
             
             effect.name = "WindlassEffect";
             effect.m_name = "Windlass Spirit";
-            effect.m_icon = AssetUtils.LoadSpriteFromFile("JotunnModStub/Assets/Windlass.png");
+            effect.m_icon = AssetUtils.LoadSpriteFromFile("Windlass/Assets/Windlass.png");
             effect.m_startMessageType = MessageHud.MessageType.TopLeft;
             effect.m_startMessage = "The wind begins to howl";
             effect.m_stopMessageType = MessageHud.MessageType.TopLeft;
