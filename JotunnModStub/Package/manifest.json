@@ -1,7 +1,7 @@
 ﻿{
   "name": "TheWindlass",
   "description": "Another OP weapon by Zarb",
-  "version_number": "1.0.1",
+  "version_number": "1.0.2",
   "website_url": "",
   "dependencies": [
     "denikson-BepInExPack_Valheim-5.4.1001",
