@@ -167,30 +167,30 @@ namespace JotunnModStub
         private void Configurator()
         {
             Config.SaveOnConfigSet = true;
-            damage = Config.Bind("Windlass Damage", "Overall Damage", 250, new ConfigDescription("Overall Damage", new AcceptableValueRange<int>(0, 2500), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            blunt = Config.Bind("Windlass Damage", "Blunt Damge", 50, new ConfigDescription("Blunt Damage", new AcceptableValueRange<int>(0, 2500), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            slashval = Config.Bind("Windlass Damage", "Slash Damage", 500, new ConfigDescription("Slash Damage", new AcceptableValueRange<int>(0, 2500), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            pierce = Config.Bind("Windlass Damage", "Pierce Damge", 400, new ConfigDescription("Pierce Damage", new AcceptableValueRange<int>(0, 2500), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            chop = Config.Bind("Windlass Damage", "Chop Damage", 950, new ConfigDescription("Chop Damage", new AcceptableValueRange<int>(0, 2500), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            pickaxe = Config.Bind("Windlass Damage", "PickAxe Damage", 1500, new ConfigDescription("Pickaxe Damage", new AcceptableValueRange<int>(0, 2500), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            fire = Config.Bind("Windlass Damage", "Fire Damage", 0, new ConfigDescription("Fire Damage", new AcceptableValueRange<int>(0, 2500), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            frost = Config.Bind("Windlass Damage", "Frost Damage", 1500, new ConfigDescription("Frost Damage", new AcceptableValueRange<int>(0, 2500), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            lightning = Config.Bind("Windlass Damage", "Lightning Damage", 1500, new ConfigDescription("Lightning Damage", new AcceptableValueRange<int>(0, 2500), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            poison = Config.Bind("Windlass Damage", "Poison Damage", 500, new ConfigDescription("Poison Damage", new AcceptableValueRange<int>(0, 2500), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            spirit = Config.Bind("Windlass Damage", "Spirit Damage", 1500, new ConfigDescription("Spirit Damage", new AcceptableValueRange<int>(0, 2500), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            damage = Config.Bind("Windlass Damage", "Overall Damage", 250, new ConfigDescription("Overall Damage", new AcceptableValueRange<int>(0, 99999), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            blunt = Config.Bind("Windlass Damage", "Blunt Damge", 50, new ConfigDescription("Blunt Damage", new AcceptableValueRange<int>(0, 99999), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            slashval = Config.Bind("Windlass Damage", "Slash Damage", 500, new ConfigDescription("Slash Damage", new AcceptableValueRange<int>(0, 99999), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            pierce = Config.Bind("Windlass Damage", "Pierce Damge", 400, new ConfigDescription("Pierce Damage", new AcceptableValueRange<int>(0, 99999), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            chop = Config.Bind("Windlass Damage", "Chop Damage", 950, new ConfigDescription("Chop Damage", new AcceptableValueRange<int>(0, 99999), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            pickaxe = Config.Bind("Windlass Damage", "PickAxe Damage", 1500, new ConfigDescription("Pickaxe Damage", new AcceptableValueRange<int>(0, 99999), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            fire = Config.Bind("Windlass Damage", "Fire Damage", 0, new ConfigDescription("Fire Damage", new AcceptableValueRange<int>(0, 99999), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            frost = Config.Bind("Windlass Damage", "Frost Damage", 1500, new ConfigDescription("Frost Damage", new AcceptableValueRange<int>(0, 99999), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            lightning = Config.Bind("Windlass Damage", "Lightning Damage", 1500, new ConfigDescription("Lightning Damage", new AcceptableValueRange<int>(0, 99999), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            poison = Config.Bind("Windlass Damage", "Poison Damage", 500, new ConfigDescription("Poison Damage", new AcceptableValueRange<int>(0, 99999), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            spirit = Config.Bind("Windlass Damage", "Spirit Damage", 1500, new ConfigDescription("Spirit Damage", new AcceptableValueRange<int>(0, 99999), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
             
             
-            damageper = Config.Bind("Per Level", "Overall Damage Per Level", 50, new ConfigDescription("Overall Damage per level", new AcceptableValueRange<int>(0, 2500), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            bluntper = Config.Bind("Per Level", "Blunt Damage Per Level", 50, new ConfigDescription("Blunt Damage per level", new AcceptableValueRange<int>(0, 2500), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            slashper = Config.Bind("Per Level", "Slash Damage Per Level", 50, new ConfigDescription("Slash Damage per level", new AcceptableValueRange<int>(0, 2500), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            pierceper = Config.Bind("Per Level", "Pierce Damage Per Level", 50, new ConfigDescription("Pierce Damage per level", new AcceptableValueRange<int>(0, 2500), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            chopper = Config.Bind("Per Level", "Chop Damage Per Level", 50, new ConfigDescription("Chop Damage per level", new AcceptableValueRange<int>(0, 2500), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            pickaxeper = Config.Bind("Per Level", "PickAxe Damage Per Level", 50, new ConfigDescription("PickAxe Damage per level", new AcceptableValueRange<int>(0, 2500), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            fireper = Config.Bind("Per Level", "Fire Damage Per Level", 50, new ConfigDescription("Fire Damage per level", new AcceptableValueRange<int>(0, 2500), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            frostper = Config.Bind("Per Level", "Frost Damage Per Level", 50, new ConfigDescription("Frost Damage per level", new AcceptableValueRange<int>(0, 2500), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            lightningper = Config.Bind("Per Level", "Lightning Damage Per Level", 50, new ConfigDescription("Lightning Damage per level", new AcceptableValueRange<int>(0, 2500), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            poisonper = Config.Bind("Per Level", "Poison Damage Per Level", 50, new ConfigDescription("Poison Damage per level", new AcceptableValueRange<int>(0, 2500), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            spiritper = Config.Bind("Per Level", "Spirit Damage Per Level", 50, new ConfigDescription("Spirit Damage per level", new AcceptableValueRange<int>(0, 2500), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            damageper = Config.Bind("Per Level", "Overall Damage Per Level", 50, new ConfigDescription("Overall Damage per level", new AcceptableValueRange<int>(0, 99999), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            bluntper = Config.Bind("Per Level", "Blunt Damage Per Level", 50, new ConfigDescription("Blunt Damage per level", new AcceptableValueRange<int>(0, 99999), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            slashper = Config.Bind("Per Level", "Slash Damage Per Level", 50, new ConfigDescription("Slash Damage per level", new AcceptableValueRange<int>(0, 99999), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            pierceper = Config.Bind("Per Level", "Pierce Damage Per Level", 50, new ConfigDescription("Pierce Damage per level", new AcceptableValueRange<int>(0, 99999), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            chopper = Config.Bind("Per Level", "Chop Damage Per Level", 50, new ConfigDescription("Chop Damage per level", new AcceptableValueRange<int>(0, 99999), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            pickaxeper = Config.Bind("Per Level", "PickAxe Damage Per Level", 50, new ConfigDescription("PickAxe Damage per level", new AcceptableValueRange<int>(0, 99999), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            fireper = Config.Bind("Per Level", "Fire Damage Per Level", 50, new ConfigDescription("Fire Damage per level", new AcceptableValueRange<int>(0, 99999), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            frostper = Config.Bind("Per Level", "Frost Damage Per Level", 50, new ConfigDescription("Frost Damage per level", new AcceptableValueRange<int>(0, 99999), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            lightningper = Config.Bind("Per Level", "Lightning Damage Per Level", 50, new ConfigDescription("Lightning Damage per level", new AcceptableValueRange<int>(0, 99999), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            poisonper = Config.Bind("Per Level", "Poison Damage Per Level", 50, new ConfigDescription("Poison Damage per level", new AcceptableValueRange<int>(0, 99999), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            spiritper = Config.Bind("Per Level", "Spirit Damage Per Level", 50, new ConfigDescription("Spirit Damage per level", new AcceptableValueRange<int>(0, 99999), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
             
             
             tier = Config.Bind("Windlass", "Tool Tier", 5, new ConfigDescription("Tool Tier", new AcceptableValueRange<int>(0, 10), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
