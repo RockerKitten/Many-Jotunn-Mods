@@ -56,6 +56,16 @@ namespace JotunnModStub
         private ConfigEntry<float> SEStamregen;
         private ConfigEntry<float> SEHealthregen;
         private ConfigEntry<float> SEstealth;
+        private ConfigEntry<int> CraftingReqTear;
+        private ConfigEntry<int> CrftingTearPer;
+        private ConfigEntry<int> CraftingReqBronze;
+        private ConfigEntry<int> CraftingBronzePer;
+        private ConfigEntry<bool> CraftingEnabled;
+        private ConfigEntry<int> CraftingObsidian;
+        private ConfigEntry<int> CraftingObsPer;
+        private ConfigEntry<int> CraftingDraugr;
+        private ConfigEntry<int> CraftingDraugrPer;
+
         private float Skillbuff = 0.010f;
 
         public CustomStatusEffect SE_Windlass { get; private set; }
