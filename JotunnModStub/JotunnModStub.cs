@@ -234,15 +234,15 @@ namespace JotunnModStub
             SEHealthregen = Config.Bind("SE", "HealthRegen", 1.2f, new ConfigDescription("Healh Regen",null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
             SEstealth = Config.Bind("SE", "Stealth", 1.5f, new ConfigDescription("Stealth buff", null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
             
-            CraftingReqTear = Config.Bind("Windlass Crafting", "Dragon Tears", 15, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            CrftingTearPer = Config.Bind("Windlass Crafting", "Dragon Tears Per Level", 15, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            CraftingReqBronze = Config.Bind("Windlass Crafting", "Dragon Tears", 15, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            CraftingBronzePer = Config.Bind("Windlass Crafting", "Dragon Tears", 15, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            CraftingEnabled = Config.Bind("Windlass Crafting", "Dragon Tears", true, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            CraftingObsidian = Config.Bind("Windlass Crafting", "Dragon Tears", 15, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            CraftingObsPer = Config.Bind("Windlass Crafting", "Dragon Tears", 15, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            CraftingDraugr = Config.Bind("Windlass Crafting", "Dragon Tears", 15, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
-            CraftingDraugrPer = Config.Bind("Windlass Crafting", "Dragon Tears", 15, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            CraftingReqTear = Config.Bind("Windlass Crafting", "Dragon Tears", 1, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            CrftingTearPer = Config.Bind("Windlass Crafting", "Dragon Tears Per Level", 1, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            CraftingReqBronze = Config.Bind("Windlass Crafting", "Bronze", 3, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            CraftingBronzePer = Config.Bind("Windlass Crafting", "Bronze Per Level", 1, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            CraftingEnabled = Config.Bind("Windlass Crafting", "Crafting Enabled", true, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            CraftingObsidian = Config.Bind("Windlass Crafting", "Obsidian", 15, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            CraftingObsPer = Config.Bind("Windlass Crafting", "Obsidian Per Level", 1, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            CraftingDraugr = Config.Bind("Windlass Crafting", "DraugrFang", 1, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            CraftingDraugrPer = Config.Bind("Windlass Crafting", "DraugrFang Per Level", 0, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
             
 
         }
