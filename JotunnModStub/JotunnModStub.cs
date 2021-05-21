@@ -96,16 +96,17 @@ namespace JotunnModStub
                 {
                     Amount = 1,
                     CraftingStation = "forge",
+                    Enabled = CraftingEnabled.Value,
                     MinStationLevel = 2,
                     RepairStation = "forge",
                     Requirements = new[]
                     {
-                        new RequirementConfig { Item = "Obsidian", Amount = 15},
-                        new RequirementConfig { Item = "DragonTear", Amount = 1, AmountPerLevel = 4},
-                        new RequirementConfig { Item = "Bronze", Amount = 3, AmountPerLevel = 10},
-                        new RequirementConfig { Item = "BowDraugrFang", Amount = 1, AmountPerLevel = 0}
+                        new RequirementConfig { Item = "Obsidian", Amount = CraftingObsidian.Value, AmountPerLevel = CraftingObsPer.Value},
+                        new RequirementConfig { Item = "DragonTear", Amount = CraftingReqTear.Value, AmountPerLevel = CrftingTearPer.Value},
+                        new RequirementConfig { Item = "Bronze", Amount = CraftingReqBronze.Value, AmountPerLevel = CraftingBronzePer.Value},
+                        new RequirementConfig { Item = "BowDraugrFang", Amount = CraftingDraugr.Value, AmountPerLevel = CraftingDraugrPer.Value}
                     }
-                }); 
+                }) ; 
             var itemDrop = bow.ItemDrop;
             itemDrop.m_itemData.m_shared.m_damages.m_damage = damage.Value;
             itemDrop.m_itemData.m_shared.m_damages.m_blunt = blunt.Value;
@@ -132,9 +133,9 @@ namespace JotunnModStub
             itemDrop.m_itemData.m_shared.m_damagesPerLevel.m_spirit = spiritper.Value;
             itemDrop.m_itemData.m_shared.m_attackForce = attackforce.Value;
             itemDrop.m_itemData.m_shared.m_equipStatusEffect = SE_windlass.StatusEffect;
-            //HitData.DamageModPair damageModPair = new HitData.DamageModPair { m_modifier = HitData.DamageModifier.Ignore, m_type = HitData.DamageType.Frost };
-            //itemDrop.m_itemData.m_shared.m_damageModifiers = new HitData.DamageModPair(1);
-                       
+
+
+
             ItemManager.Instance.AddItem(bow);
             
         }
@@ -146,13 +147,25 @@ namespace JotunnModStub
             SE.m_name = "Windlass Spirit";
             SE.m_icon = windlasseffect;
             SE.m_tooltip = "Increased Bow Skills gain when Windlass is equipped";
+            SE.m_startMessage = "The spirit of the wind is with you";
+            SE.m_startMessageType = MessageHud.MessageType.TopLeft;
+            SE.m_stopMessage = "The spirit of the wind slowly fades";
+            SE.m_stopMessageType = MessageHud.MessageType.TopLeft;
             SE.m_runStaminaDrainModifier = -SEStamdrain.Value;
             SE.m_modifyAttackSkill = Skills.SkillType.Bows;
             SE.m_damageModifier = SEdam.Value;
             SE.m_staminaRegenMultiplier = SEStamregen.Value;
             SE.m_healthRegenMultiplier = SEHealthregen.Value;
             SE.m_noiseModifier = SEstealth.Value;
+            SE.m_attributes = StatusEffect.StatusAttribute.ColdResistance;
             SE.ModifyRaiseSkill(Skills.SkillType.Bows, ref Skillbuff);
+            List<HitData.DamageModPair> thing = new List<HitData.DamageModPair> {
+                    new HitData.DamageModPair {
+                        m_modifier = HitData.DamageModifier.Ignore,
+                        m_type = HitData.DamageType.Frost
+                    }
+            };
+            SE.m_mods = thing;
 
             SE_windlass = new CustomStatusEffect(SE, fixReference: true);
             ItemManager.Instance.AddStatusEffect(SE_windlass);
@@ -221,7 +234,15 @@ namespace JotunnModStub
             SEHealthregen = Config.Bind("SE", "HealthRegen", 1.2f, new ConfigDescription("Healh Regen",null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
             SEstealth = Config.Bind("SE", "Stealth", 1.5f, new ConfigDescription("Stealth buff", null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
             
-
+            CraftingReqTear = Config.Bind("Windlass Crafting", "Dragon Tears", 15, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            CrftingTearPer = Config.Bind("Windlass Crafting", "Dragon Tears Per Level", 15, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            CraftingReqBronze = Config.Bind("Windlass Crafting", "Dragon Tears", 15, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            CraftingBronzePer = Config.Bind("Windlass Crafting", "Dragon Tears", 15, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            CraftingEnabled = Config.Bind("Windlass Crafting", "Dragon Tears", true, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            CraftingObsidian = Config.Bind("Windlass Crafting", "Dragon Tears", 15, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            CraftingObsPer = Config.Bind("Windlass Crafting", "Dragon Tears", 15, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            CraftingDraugr = Config.Bind("Windlass Crafting", "Dragon Tears", 15, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
+            CraftingDraugrPer = Config.Bind("Windlass Crafting", "Dragon Tears", 15, new ConfigDescription("How Many Dragon Tears To Craft Bow", new AcceptableValueRange<int>(0,100), null, new ConfigurationManagerAttributes { IsAdminOnly = true }));
             
 
         }
