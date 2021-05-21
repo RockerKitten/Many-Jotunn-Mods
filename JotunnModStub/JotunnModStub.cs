@@ -12,6 +12,7 @@ using Jotunn.Entities;
 using Jotunn.Configs;
 using Jotunn.Managers;
 using BepInEx.Configuration;
+using System.Collections.Generic;
 
 namespace JotunnModStub
 {
@@ -26,6 +27,7 @@ namespace JotunnModStub
         public static new Jotunn.Logger Logger;
         private AssetBundle embeddedResourceBundle;
         public static CustomStatusEffect SE_windlass;
+        private Sprite windlasseffect;
         private ConfigEntry<int> damage;
         private ConfigEntry<int> damageper;
         private ConfigEntry<int> blunt;
@@ -83,6 +85,7 @@ namespace JotunnModStub
         {
             Jotunn.Logger.LogInfo($"Embedded resources: {string.Join(",", Assembly.GetExecutingAssembly().GetManifestResourceNames())}");
             embeddedResourceBundle = AssetUtils.LoadAssetBundleFromResources("bow", Assembly.GetExecutingAssembly());
+            windlasseffect = embeddedResourceBundle.LoadAsset<Sprite>("sprite_windlass");
         }
 
         private void CreateThing()
@@ -129,6 +132,9 @@ namespace JotunnModStub
             itemDrop.m_itemData.m_shared.m_damagesPerLevel.m_spirit = spiritper.Value;
             itemDrop.m_itemData.m_shared.m_attackForce = attackforce.Value;
             itemDrop.m_itemData.m_shared.m_equipStatusEffect = SE_windlass.StatusEffect;
+            //HitData.DamageModPair damageModPair = new HitData.DamageModPair { m_modifier = HitData.DamageModifier.Ignore, m_type = HitData.DamageType.Frost };
+            //itemDrop.m_itemData.m_shared.m_damageModifiers = new HitData.DamageModPair(1);
+                       
             ItemManager.Instance.AddItem(bow);
             
         }
@@ -138,7 +144,7 @@ namespace JotunnModStub
             SE_Stats SE = ScriptableObject.CreateInstance<SE_Stats>();
             SE.name = "WindlassEffect";
             SE.m_name = "Windlass Spirit";
-            SE.m_icon = AssetUtils.LoadSpriteFromFile("Windlass/Assets/Windlass.png");
+            SE.m_icon = windlasseffect;
             SE.m_tooltip = "Increased Bow Skills gain when Windlass is equipped";
             SE.m_runStaminaDrainModifier = -SEStamdrain.Value;
             SE.m_modifyAttackSkill = Skills.SkillType.Bows;
