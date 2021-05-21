@@ -23,7 +23,7 @@ namespace JotunnModStub
     {
         public const string PluginGUID = "com.zarboz.windlass";
         public const string PluginName = "Windlass";
-        public const string PluginVersion = "0.1.2";
+        public const string PluginVersion = "0.1.3";
         public static new Jotunn.Logger Logger;
         private AssetBundle embeddedResourceBundle;
         public static CustomStatusEffect SE_windlass;
