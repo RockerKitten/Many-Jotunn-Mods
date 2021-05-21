@@ -8,14 +8,14 @@ using Jotunn.Configs;
 using Jotunn.Managers;
 using System;
 
-namespace MaorBuilds
+namespace Grills
 {
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
     [BepInDependency(Jotunn.Main.ModGuid)]
-    internal class MoarBuilds : BaseUnityPlugin
+    internal class Grills : BaseUnityPlugin
     {
-        public const string PluginGUID = "com.zarboz.goblinbuilds";
-        public const string PluginName = "GoblinBuilds";
+        public const string PluginGUID = "com.zarboz.grills";
+        public const string PluginName = "RockRKittenGrill";
         public const string PluginVersion = "1.0.0";
         private Sprite goblinfence;
         private Sprite goblinspike;
